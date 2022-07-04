@@ -50,12 +50,16 @@ def create_data_lake():
     path = os.path.join(raiz_business_reports, nivel_3)
     os.mkdir(path)
 
+    return
 
-   # raise NotImplementedError("Implementar esta función")
+
+   #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
     import doctest
 
-    doctest.testmod()
     create_data_lake()
+
+    doctest.testmod()
+    
