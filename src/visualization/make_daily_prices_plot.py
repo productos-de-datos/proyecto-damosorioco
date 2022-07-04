@@ -12,6 +12,7 @@ def make_daily_prices_plot():
 
     """importe de librerías"""
 
+    import matplotlib
     import matplotlib.pyplot as plt
     import pandas as pd
 
