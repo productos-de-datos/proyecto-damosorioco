@@ -6,6 +6,9 @@
 # test_02: pytest
 # test_03: doctest
 #
+
+"""calificación del proyecto"""
+
 import os
 import sys
 

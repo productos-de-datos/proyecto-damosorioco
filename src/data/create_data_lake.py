@@ -1,6 +1,7 @@
 """"creación del data lake del proyecto, que almancenará los datos de los modelos"""
-from importlib.resources import path
-from msilib.schema import Directory
+
+
+
 import os
 import sys  
 
