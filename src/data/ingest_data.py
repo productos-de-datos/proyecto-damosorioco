@@ -23,31 +23,18 @@ def ingest_data():
     import sys    
     
 
-    inicio = 1995
+    import requests
+    ruta = "https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/"
 
-    fin = 2022
-
-    ruta_repositorio = 'https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls'
-
-    ruta_destino = 'data_lake/landing'
-
-    for years in range(inicio, fin):
-
-        try:
-
-            files = pd.read_excel(ruta_repositorio + '/' + str(years) + 'xlsx?raw=true')
-            files.to_excel(ruta_destino  + str(years) + '.xlsx', index=None, header=True)
-        except:
-
-            files = pd.read_excel(ruta_repositorio + '/' + str(years) + '.xls?raw=true')
-            files.to_excel(ruta_destino + str(years) + '.xls', index=None, header=True)
-
-    return
-
-
-
-
-
+    for year in range(1995, 2022):
+        if year in [2016,2017]:
+            url = ruta + "{}.xls?raw=true".format(year)
+            file = requests.get(url, allow_redirects=True)
+            open('data_lake/landing/{}.xls'.format(year),"wb").write(file.content)
+        else:
+            url = ruta + "{}.xlsx?raw=true".format(year)
+            file = requests.get(url, allow_redirects=True)
+            open('data_lake/landing/{}.xlsx'.format(year),"wb").write(file.content)
 
 
     #raise NotImplementedError("Implementar esta función")
