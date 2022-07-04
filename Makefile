@@ -32,6 +32,12 @@ pipeline:
 	python3 src/data/create_data_lake.py
 	python3 src/data/pipeline.py
 
+make_daily_prices_plot:
+	python3 src/visualization/make_daily_prices_plot.py
+	
+make_monthly_prices_plot:
+	python3 src/visualization/make_monthly_prices_plot.py
+
 make_features:
 	python3 src/features/make_features.py
 
@@ -41,8 +47,5 @@ train_model:
 make_forecasts:
 	python3 src/model/make_forecasts.py
 
-make_daily_prices_plot:
-	python3 src/visualization/make_daily_prices_plot.py
-make_monthly_prices_plot:
-	python3 src/visualization/make_monthly_prices_plot.py
+
 
