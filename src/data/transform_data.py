@@ -28,9 +28,9 @@ def transform_data():
         if i in range(2018, 2022):
             df = pd.read_excel('data_lake/landing/{}.xlsx'.format(i), header=0)
             df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
+    return
 
-
-
+#raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
