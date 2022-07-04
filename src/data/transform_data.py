@@ -18,16 +18,16 @@ def transform_data():
 
         if i in range(1995,2000):
             df= pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=3)
-            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
         if i in range(2000, 2016):
             df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=2)
-            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
         if i in [2016, 2017]:
             df = pd.read_excel('data_lake/landing/{}.xls'.format(j), header=2)
-            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
         if i in range(2018, 2022):
             df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=0)
-            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
 
 
 
