@@ -15,20 +15,39 @@ def transform_data():
 
     """mediante el ciclo se juntan los archivos bajo el mismo formato csv"""
 
-    for i in range(1995, 2022):
+    import pandas as pd
 
-        if i in range(1995,2000):
-            df= pd.read_excel('data_lake/landing/{}.xlsx'.format(i), header=3)
-            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
-        if i in range(2000, 2016):
-            df = pd.read_excel('data_lake/landing/{}.xlsx'.format(i), header=2)
-            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
-        if i in [2016, 2017]:
-            df = pd.read_excel('data_lake/landing/{}.xls'.format(i), header=2)
-            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
-        if i in range(2018, 2022):
-            df = pd.read_excel('data_lake/landing/{}.xlsx'.format(i), header=0)
-            df.to_csv('data_lake/raw/{}.csv'.format(i), index=None)
+    for year in range(1995, 2022):
+        
+        if year <= 1999:
+            file_name = f'data_lake/landing/{year}.xlsx'
+            df = pd.read_excel(file_name, sheet_name = 0, header = 3)
+            df = df.iloc[:, :25]
+            new_file = f'data_lake/raw/{year}.csv'
+            df.to_csv(new_file, index=False)
+        
+        elif year > 1999 and year <= 2015:
+            file_name = f'data_lake/landing/{year}.xlsx'
+            df = pd.read_excel(file_name, sheet_name = 0, header = 2)
+            df = df.iloc[:, :25]
+            new_file = f'data_lake/raw/{year}.csv'
+            df.to_csv(new_file, index=False)
+        
+        elif year > 2015 and year <= 2017:
+            file_name = f'data_lake/landing/{year}.xls'
+            df = pd.read_excel(file_name, sheet_name = 0, header = 2)
+            df = df.iloc[:, :25]
+            new_file = f'data_lake/raw/{year}.csv'
+            df.to_csv(new_file, index=False)
+
+        else:
+            file_name = f'data_lake/landing/{year}.xlsx'
+            df = pd.read_excel(file_name,  sheet_name = 0)
+            df = df.iloc[:, :25]
+            new_file = f'data_lake/raw/{year}.csv'
+            df.to_csv(new_file, index=False)
+            
+    return    
 
 
 #raise NotImplementedError("Implementar esta función")
