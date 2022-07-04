@@ -20,8 +20,7 @@ def ingest_data():
     """
     import os
     import pandas as pd
-    
-    
+    import sys    
     import xlwt
 
     inicio = 1995
@@ -56,7 +55,7 @@ def ingest_data():
 
 if __name__ == "__main__":
     
-    ingest_data()
-    import doctest
     
+    import doctest
+    ingest_data()
     doctest.testmod()
