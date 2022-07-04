@@ -11,7 +11,6 @@ def transform_data():
     """
 
     import pandas as pd
-    import openpyxl
 
 
     """mediante el ciclo se juntan los archivos bajo el mismo formato csv"""
@@ -37,6 +36,6 @@ def transform_data():
 
 if __name__ == "__main__":
     import doctest
-
-    doctest.testmod()
     transform_data()
+    doctest.testmod()
+    
