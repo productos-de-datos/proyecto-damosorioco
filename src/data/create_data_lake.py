@@ -1,10 +1,3 @@
-""""creación del data lake del proyecto, que almancenará los datos de los modelos"""
-
-
-
-import os
-import sys  
-
 def create_data_lake():
     """Cree el data lake con sus capas.
 
@@ -29,6 +22,11 @@ def create_data_lake():
 
     """
 
+    """"creación del data lake del proyecto, que almancenará los datos de los modelos"""
+
+    import os
+    import sys
+    
     os.mkdir('data_lake')
 
     raiz_ppal = 'data_lake/'
@@ -60,3 +58,4 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    create_data_lake()
