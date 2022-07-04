@@ -1,3 +1,9 @@
+""""creación del data lake del proyecto, que almancenará los datos de los modelos"""
+from importlib.resources import path
+from msilib.schema import Directory
+import os
+import sys  
+
 def create_data_lake():
     """Cree el data lake con sus capas.
 
@@ -21,7 +27,32 @@ def create_data_lake():
 
 
     """
-    raise NotImplementedError("Implementar esta función")
+
+    os.mkdir('data_lake')
+
+    raiz_ppal = 'data_lake/'
+
+    nivel_1 = ['landing', 'raw', 'cleansed', 'business']
+
+    for items in nivel_1:
+        path = os.path.join(raiz_ppal, items)
+        os.mkdir(path)
+
+    raiz_business = 'data_lake/business'
+
+    nivel_2 = ['reports', 'features', 'forecasts']
+
+    for items in nivel_2:
+        path = os.path.join(raiz_business, items)
+        os.mkdir(path)
+    
+    nivel_3 = 'figures'
+    raiz_business_reports = 'data_lake/business/reports/'
+    path = os.path.join(raiz_business_reports, nivel_3)
+    os.mkdir(path)
+
+
+   # raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
