@@ -21,7 +21,7 @@ def ingest_data():
     import os
     import pandas as pd
     import sys    
-    import xlwt
+    
 
     inicio = 1995
 
