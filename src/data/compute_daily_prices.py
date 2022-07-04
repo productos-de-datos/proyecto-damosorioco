@@ -1,3 +1,8 @@
+""""se crea un archivo con los promedios diarios del precio de la electricidad en bolsa"""
+
+
+
+
 def compute_daily_prices():
     """Compute los precios promedios diarios.
 
@@ -12,6 +17,7 @@ def compute_daily_prices():
 
 
     """
+
     raise NotImplementedError("Implementar esta función")
 
 
