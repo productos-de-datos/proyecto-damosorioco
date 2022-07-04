@@ -1,3 +1,5 @@
+"""Esta función mediante el uso de pandas transforma los datos del formato XLS y XLSX a un archivo separado por comas"""
+
 def transform_data():
     """Transforme los archivos xls a csv.
 
@@ -7,10 +9,32 @@ def transform_data():
     H23.
 
     """
-    raise NotImplementedError("Implementar esta función")
+
+    import pandas as pd
+
+    """mediante el ciclo se juntan los archivos bajo el mismo formato csv"""
+
+    for i in range(1995, 2022):
+
+        if i in range(1995,2000):
+            df= pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=3)
+            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+        if i in range(2000, 2016):
+            df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=2)
+            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+        if i in [2016, 2017]:
+            df = pd.read_excel('data_lake/landing/{}.xls'.format(j), header=2)
+            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+        if i in range(2018, 2022):
+            df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=0)
+            df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
+
+
+
 
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    transform_data()
