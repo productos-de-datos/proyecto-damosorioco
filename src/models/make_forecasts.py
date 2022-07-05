@@ -22,11 +22,11 @@ def make_forecasts():
 
     """carga de modelo de datos/pronóstico"""
     pickled_model = pickle.load(open('src/models/precios-diarios.pkl', 'rb'))
-    df['pronostico_log'] = pickled_model.predict(np.array(df.log_precio_lag_12).reshape(-1, 1))
+    df['pronostico_log'] = pickled_model.predict(np.array(df.log_precio_12).reshape(-1, 1))
     df['pronostico'] = np.exp(df['pronostico_log'])
 
     
-    df_forecast = df.drop(['log_precio', 'precio_lag_12', 'log_precio_lag_12', 'pronostico_log'], axis = 1)
+    df_forecast = df.drop(['log_precio', 'precio_12', 'log_precio_12', 'pronostico_log'], axis = 1)
 
     """guardar archivo"""
     df_forecast.to_csv('data_lake/business/forecasts/precios-diarios.csv', index=False)
