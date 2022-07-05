@@ -28,7 +28,7 @@ def train_daily_model():
     MLP = MLPRegressor(
         hidden_layer_sizes= (H,),
         activation='logistic',
-        learning_rate='adaptative',
+        learning_rate='adaptive',
         momentum= 0.0,
         learning_rate_init= 0.1,
         max_iter= 10000,
