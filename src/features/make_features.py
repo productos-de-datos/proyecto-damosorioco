@@ -40,7 +40,7 @@ def test_make_features():
     assert df_test_features.empty is False
 
 
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
