@@ -1,4 +1,4 @@
-def make_daily_prices_plot():
+def make_monthly_prices_plot():
     """Crea un grafico de lines que representa los precios promedios diarios.
 
     Usando el archivo data_lake/business/precios-diarios.csv, crea un grafico de
@@ -18,24 +18,24 @@ def make_daily_prices_plot():
 
     """creación de gráficos"""
 
-    df_daily_prices = pd.read_csv('data_lake/business/precios-diarios.csv')
-    df_daily_prices['fecha'] = pd.to_datetime(df_daily_prices["fecha"])
+    df_monthly_prices = pd.read_csv('data_lake/business/precios-mensuales.csv')
+    df_monthly_prices['fecha'] = pd.to_datetime(df_monthly_prices["fecha"])
 
-    x = df_daily_prices['fecha']
-    y = df_daily_prices['precio']
+    x = df_monthly_prices['fecha']
+    y = df_monthly_prices['precio']
 
     plt.figure(figsize=(12, 8)) 
-    plt.plot(x, y, label='Prom Diario') 
-    plt.title('Precio Prom Diario') 
+    plt.plot(x, y, label='Prom Mensual') 
+    plt.title('Precio Prom Mensual') 
     plt.xlabel('Fecha') 
     plt.ylabel('Precio') 
-    plt.savefig("data_lake/business/reports/figures/daily_prices.png") 
+    plt.savefig("data_lake/business/reports/figures/monthly_prices.png") 
 
-
+    return
 
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-    make_daily_prices_plot()
+    make_monthly_prices_plot()

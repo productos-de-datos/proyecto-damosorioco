@@ -12,10 +12,23 @@ def compute_monthly_prices():
 
 
     """
-    raise NotImplementedError("Implementar esta función")
+    """usando la librería pandas se lee (pd.read_csv) y por medio de groupby se extraen los precios y se calcula la media por mes"""
+    import pandas as pd
+
+    hourly_prices_df = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
+    hourly_prices_df = hourly_prices_df[['fecha', 'precio']]
+    hourly_prices_df['mes'] = hourly_prices_df['fecha'].str[:7] + '-01'
+    
+    monthly_prices_df = hourly_prices_df.groupby('mes', as_index = False).mean()
+    monthly_prices_df.columns = ['fecha', 'precio']
+    monthly_prices_df.to_csv('data_lake/business/precios-mensuales.csv', index=False)
+
+    return
+
+    #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
     import doctest
-
+    compute_monthly_prices()
     doctest.testmod()
