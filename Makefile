@@ -39,7 +39,7 @@ make_monthly_prices_plot:
 	python3 src/visualization/make_monthly_prices_plot.py
 
 make_features:
-	python3 src/business/features/make_features.py
+	python3 src/features/make_features.py
 
 train_model:
 	python3 src/model/train_model.py
