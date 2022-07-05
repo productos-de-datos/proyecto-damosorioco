@@ -44,8 +44,10 @@ def train_daily_model():
 
     pickle.dump(MLP, open('src/models/precios-diarios.pkl', 'wb'))
 
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
+
+    return
 
 if __name__ == "__main__":
     import doctest
